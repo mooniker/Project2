@@ -1,0 +1,4 @@
+<% @projects.each do |project| %>
+<div> <%= link_to project.title, user_project_path(current_user, project) %></div>
+<% end %>
+<%= link_to 'Add a project', new_user_project_path(current_user) %>

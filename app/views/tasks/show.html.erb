@@ -1,0 +1,8 @@
+<h2>Task Detail</h2>
+<%= @task.name %>
+<%= @task.due_date %>
+<%= @task.status %>
+<%= @task.project.title %>
+<%= @task.priority %>
+
+<%= link_to '(edit)', edit_user_project_task_path(current_user, @task.project, @task) %>

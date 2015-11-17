@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Project2</title>
+  <title>Get It Done</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
-<%= yield %>
+  <header>
+    <div class="content clearfix">
+      <h1><%= link_to 'Get It Done', root_path %></h1>
+      <div class="user-info login">
+             <% if current_user %>
+               You're logged in as <%= current_user.email %>
+               <%= link_to 'Signout', destroy_user_session_path, :method => :delete %>
+             <% else %>
+               <%= link_to 'Signup', new_user_registration_path %>
+               <%= link_to 'Login', new_user_session_path %>
+             <% end %>
+      </div>
+    <div>
+  </header>
+  <div class="content" id="main">
+    <nav>
+      <% if current_user %>
+      <%= link_to 'View My Projects', user_projects_path(current_user) %>
+      <% else %>
+        <%= link_to 'Login to View Projects', user_session_path %>
+      <% end %>
+    </nav>      
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

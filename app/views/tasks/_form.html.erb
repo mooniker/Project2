@@ -1,0 +1,11 @@
+<div class="field">
+  <%= form_for ([current_user, @project, @task]) do |f| %>
+    <%= f.label :name%>
+    <%= f.text_field :name %>
+    <%= f.label :priority%>
+    <%= f.select(:priority, ['Low', 'Med', 'High', 'Urgent']) %>
+    <%= f.label :due_date%>
+    <%= f.date_field :due_date %>
+    <%= f.submit %>
+  <% end %>
+</div>
