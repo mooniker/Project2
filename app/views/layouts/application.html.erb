@@ -8,15 +8,15 @@
 </head>
 <body>
   <header>
-    <div class="content clearfix">
+    <div class="content">
       <h1><%= link_to 'Small Steps', root_path %></h1>
       <div class="user-info login">
              <% if current_user %>
                Welcome, <%= current_user.first_name %>
-               <%= link_to 'Signout', destroy_user_session_path, :method => :delete %>
+               <%= link_to 'Signout', destroy_user_session_path, :method => :delete, :class => "button"%>
              <% else %>
-               <%= link_to 'Signup', new_user_registration_path %>
-               <%= link_to 'Login', new_user_session_path %>
+               <%= link_to 'Signup', new_user_registration_path, :class => "button"%>
+               <%= link_to 'Login', new_user_session_path, :class => "button" %>
              <% end %>
       </div>
     <div>
@@ -28,6 +28,7 @@
       <% else %>
         <%= link_to 'Login to View Projects', user_session_path %>
       <% end %>
+      <%= link_to 'Start New Project', new_user_project_path(current_user) %>
     </nav>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>

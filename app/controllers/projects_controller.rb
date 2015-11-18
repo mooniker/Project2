@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
 
   #create
   def create
-    @project = Project.create(project_params)
+    @project = current_user.projects.create(project_params)
     redirect_to user_project_path(current_user, @project)
   end
 
@@ -42,6 +42,6 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:title, :due_date, :image, :description).merge(user_id: current_user)
+    params.require(:project).permit(:title, :due_date, :image, :description, :status)
   end
 end

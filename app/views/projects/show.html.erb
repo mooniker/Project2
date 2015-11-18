@@ -1,11 +1,24 @@
 
-<div>
-  <h2><%= @project.title %></h2> <%= link_to '(edit)', edit_user_project_path(current_user, @project) %>
+
   <div class="task-bucket project-view">
+    <h2><%= @project.title %></h2>
     <% @project.tasks.each do |task| %>
       <%= link_to task.name, user_project_task_path(current_user, @project, task), class: 'task' %>
     <% end %>
-    <%= link_to 'Add a task', new_user_project_task_path(current_user, @project), class: 'task' %>
+    <%= link_to '+', new_user_project_task_path(current_user, @project), class: 'button' %>
+    <%= link_to 'Edit Project', edit_user_project_path(current_user, @project), class: 'button' %>
+    <%= link_to 'Delete', user_project_path(current_user, @project), method: :delete, class:'button' %>
   </div>
 
-<div>
+
+  <div class="project-view">
+    <h2>Details</h2>
+      <ul>
+        <li>Project Creator: <%= @project.user.first_name %></li>
+        <li>Description:<%= @project.description %></li>
+        <li><div class="image-container"><%= image_tag(@project.image) %></div></li>
+        <li>Start Date: <%= @project.created_at.to_date %></li>
+        <li>Due Date: <%= @project.due_date %></li>
+        <li>Status: <%= @project.status %></li>
+      </ul>
+  </div>

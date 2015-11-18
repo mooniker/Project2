@@ -21,9 +21,9 @@ h1, h2{
 h1{
   font-size: 50px;
   line-height: 1;
-  float: left;
-  top: 25%;
+  top: 15%;
   position: absolute;
+  left: 10%;
 }
 
 header{
@@ -33,27 +33,13 @@ header{
   background-color: rgb(52, 73, 94);
   width: 100%;
   height: 100px;
+  -webkit-box-shadow: 0px 1px 11px -2px rgba(19,15,26,1);
+  -moz-box-shadow: 0px 1px 11px -2px rgba(19,15,26,1);
+  box-shadow: 0px 1px 11px -2px rgba(19,15,26,1);
 }
 a{
   text-decoration: none;
   color: inherit;
-}
-.login a{
-  display: inline-block;
-  /* border: 1px solid rgb(36, 49, 61); */
-  padding: 10px;
-  border-radius: 3px;
-  background-color: rgb(36, 49, 61);
-  color: rgb(164, 151, 127);
-}
-
-.clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
 }
 
 .content{
@@ -62,8 +48,9 @@ a{
 }
 
 .login{
-  float: right;
-  margin-top: 35px;
+  position:absolute;
+  top: 25%;
+  right: 10%;
 }
 #main{
   padding-top: 150px;
@@ -74,6 +61,7 @@ a{
 }
 .field input, textarea, select{
   border: none;
+  border-radius: 3px;
   background-color: rgb(52, 73, 94);
   height: 30px;
   width: 300px;
@@ -84,45 +72,73 @@ a{
   height: 150px;
   width: 300px;
 }
-.field *{
+.field label{
   display: block;
-  margin-bottom: 20px;
+  margin-top: 10px;
 }
-input[type=checkbox]{
-  border: none;
+.button, input[type='submit']{
+  display: inline-block;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: rgb(36, 49, 61);
+  color: rgb(164, 151, 127);
 }
-nav{
-  position: absolute;
-  top: 100px;
-  left: 965px;
+input[type=submit]{
+  margin-top: 20px;
+  display: block;
+}
+nav a{
   background-color: rgb(36, 49, 61);
   color: rgb(164, 151, 127);
   padding: 15px;
+  -webkit-box-shadow: 0px 1px 11px -2px rgba(19,15,26,1);
+  -moz-box-shadow: 0px 1px 11px -2px rgba(19,15,26,1);
+  box-shadow: 0px 1px 11px -2px rgba(19,15,26,1);
+}
+nav{
+  position: absolute;
+  top: 115px;
+  right:10%;
 }
 .project-view{
-  /*height: 400px;*/
   width: 300px;
-  background-color: rgba(215, 113, 5, 0.77);
+  flex-grow: 1;
+  background-color: rgb(215, 135, 5);
   border-radius: 3px;
   padding: 10px;
   margin: 5px;
+  position: relative;
+}
+.project-view h2{
+  border-bottom: 2px dotted rgb(52, 73, 94);
+  margin-bottom: 5px;
 }
 .project-view p{
-  max-height: 150px;
+  max-height: 145px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.project-view img{
-  max-height: 100px;
-  max-width: 250px;
+.project-view .image-container{
+  height: 140px;
+  width: 280px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.image-container img{
+  width: 100%;
+}
+.project-view .button{
+  width: 280px;
+  text-align: center;
+  margin: 10px auto;
+  display: block;
 }
 .task-bucket{
   display: flex;
   flex-direction: column;
-  width: 600px;
 }
 .task{
-  background-color: rgb(36, 49, 61);
+  background-color: rgb(52, 73, 94);
   color: rgb(164, 151, 127);
   border-radius: 3px;
   margin-bottom: 5px;
@@ -133,4 +149,7 @@ nav{
   color: rgb(36, 49, 61);
   border-radius: 3px;
   padding: 10px;
+}
+li{
+  list-style: none;
 }

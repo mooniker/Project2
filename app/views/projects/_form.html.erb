@@ -8,6 +8,8 @@
     <%= f.date_field :due_date %>
     <%= f.label :image %>
     <%= f.file_field :image %>
+    <%= f.label :status %>
+    <%= f.select(:status, ['Open', 'Closed']) %>
     <%= f.submit %>
   <% end %>
 </div>

@@ -1,11 +1,13 @@
 <div>
-  <h2><%= @task.name %></h2>
+  <h2></h2>
   <div class="detail">
+    <p><%= @task.name %></p>
     <p>Parent Project: <%= @task.project.title %></p>
     <p>Due: <%= @task.due_date %></p>
     <p>Status: <%= @task.status %></p>
     <p>Priority: <%= @task.priority %></p>
     <p>Created by: <%= @task.project%></p>
-    <%= link_to '(edit)', edit_user_project_task_path(current_user, @task.project, @task) %>
+    <%= link_to 'Edit', edit_user_project_task_path(current_user, @task.project, @task), class: 'button' %>
+    <%= link_to 'Delete', user_project_task_path(current_user, @task.project, @task), method: :delete, class:'button' %>
   </div>
 </div>

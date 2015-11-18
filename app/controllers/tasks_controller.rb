@@ -29,6 +29,6 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:name, :priority, :due_date).merge(status: 'todo')
+    params.require(:task).permit(:name, :priority, :due_date)
   end
 end
