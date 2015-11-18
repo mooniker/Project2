@@ -1,5 +1,11 @@
-<h2><%= @project.title %></h2> <%= link_to '(edit)', edit_user_project_path(current_user, @project) %>
 
-<% @project.tasks.each do |task| %>
-<div class="task"><%= link_to task.name, user_project_task_path(current_user, @project, task) %></div>
-<% end %>
+<div>
+  <h2><%= @project.title %></h2> <%= link_to '(edit)', edit_user_project_path(current_user, @project) %>
+  <div class="task-bucket project-view">
+    <% @project.tasks.each do |task| %>
+      <%= link_to task.name, user_project_task_path(current_user, @project, task), class: 'task' %>
+    <% end %>
+    <%= link_to 'Add a task', new_user_project_task_path(current_user, @project), class: 'task' %>
+  </div>
+
+<div>

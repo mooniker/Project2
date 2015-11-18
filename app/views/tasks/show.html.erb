@@ -1,8 +1,11 @@
-<h2>Task Detail</h2>
-<%= @task.name %>
-<%= @task.due_date %>
-<%= @task.status %>
-<%= @task.project.title %>
-<%= @task.priority %>
-
-<%= link_to '(edit)', edit_user_project_task_path(current_user, @task.project, @task) %>
+<div>
+  <h2><%= @task.name %></h2>
+  <div class="detail">
+    <p>Parent Project: <%= @task.project.title %></p>
+    <p>Due: <%= @task.due_date %></p>
+    <p>Status: <%= @task.status %></p>
+    <p>Priority: <%= @task.priority %></p>
+    <p>Created by: <%= @task.project%></p>
+    <%= link_to '(edit)', edit_user_project_task_path(current_user, @task.project, @task) %>
+  </div>
+</div>

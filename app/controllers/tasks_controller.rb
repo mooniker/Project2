@@ -8,12 +8,13 @@ class TasksController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @task = @project.tasks.create(task_params)
+    redirect_to user_project_path(current_user, @project)
   end
 
   def show
     @task = Task.find(params[:id])
   end
-  
+
   def edit
     @project = Project.find(params[:project_id])
     @task = Task.find(params[:id])
@@ -23,6 +24,7 @@ class TasksController < ApplicationController
     @project = Project.find(params[:project_id])
     @task = Task.find(params[:id])
     @task.update(task_params)
+    redirect_to user_project_task_path(current_user, @project, @task)
   end
 
   private

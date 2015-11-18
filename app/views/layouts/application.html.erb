@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Get It Done</title>
+  <title>Small Steps</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,10 +9,10 @@
 <body>
   <header>
     <div class="content clearfix">
-      <h1><%= link_to 'Get It Done', root_path %></h1>
+      <h1><%= link_to 'Small Steps', root_path %></h1>
       <div class="user-info login">
              <% if current_user %>
-               You're logged in as <%= current_user.email %>
+               Welcome, <%= current_user.first_name %>
                <%= link_to 'Signout', destroy_user_session_path, :method => :delete %>
              <% else %>
                <%= link_to 'Signup', new_user_registration_path %>
@@ -28,7 +28,7 @@
       <% else %>
         <%= link_to 'Login to View Projects', user_session_path %>
       <% end %>
-    </nav>      
+    </nav>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>

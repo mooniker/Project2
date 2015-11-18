@@ -1,16 +1,29 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,700,300);
 @import url(https://fonts.googleapis.com/css?family=PT+Mono);
 
-body{
-  background-color: rgb(222, 151, 12);
-  color: rgb(247, 240, 234);
-  font-family: 'PT Mono';
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
-h1{
+body{
+  background-color: rgb(222, 151, 12);
+  color: rgb(36, 49, 61);
+  font-family: 'PT Mono';
+}
+h1, h2{
   font-family: 'Oswald';
   font-weight: bold;
+  margin: 0;
+}
+h1{
+  font-size: 50px;
+  line-height: 1;
   float: left;
+  top: 25%;
+  position: absolute;
 }
 
 header{
@@ -29,7 +42,7 @@ a{
   display: inline-block;
   /* border: 1px solid rgb(36, 49, 61); */
   padding: 10px;
-  border-radius: 13%;
+  border-radius: 3px;
   background-color: rgb(36, 49, 61);
   color: rgb(164, 151, 127);
 }
@@ -53,9 +66,13 @@ a{
   margin-top: 35px;
 }
 #main{
-  padding-top: 120px;
+  padding-top: 150px;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  align-content: center;
 }
-.field input, textarea{
+.field input, textarea, select{
   border: none;
   background-color: rgb(52, 73, 94);
   height: 30px;
@@ -69,7 +86,7 @@ a{
 }
 .field *{
   display: block;
-  margin: 10px 0 10px 0;
+  margin-bottom: 20px;
 }
 input[type=checkbox]{
   border: none;
@@ -81,4 +98,39 @@ nav{
   background-color: rgb(36, 49, 61);
   color: rgb(164, 151, 127);
   padding: 15px;
+}
+.project-view{
+  /*height: 400px;*/
+  width: 300px;
+  background-color: rgba(215, 113, 5, 0.77);
+  border-radius: 3px;
+  padding: 10px;
+  margin: 5px;
+}
+.project-view p{
+  max-height: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.project-view img{
+  max-height: 100px;
+  max-width: 250px;
+}
+.task-bucket{
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}
+.task{
+  background-color: rgb(36, 49, 61);
+  color: rgb(164, 151, 127);
+  border-radius: 3px;
+  margin-bottom: 5px;
+  padding: 10px 5px 10px 5px;
+}
+.detail{
+  background-color: rgba(215, 113, 5, 0.77);
+  color: rgb(36, 49, 61);
+  border-radius: 3px;
+  padding: 10px;
 }
