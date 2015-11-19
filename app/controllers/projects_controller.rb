@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
   #show
   def show
     @project = Project.find(params[:id])
+    @tasks = @project.tasks.sort_by &:due_in
   end
 
   #edit
@@ -44,4 +45,5 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:title, :due_date, :image, :description, :status)
   end
+
 end

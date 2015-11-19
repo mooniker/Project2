@@ -13,6 +13,8 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+    @due_in = @task.due_in
+    @task.set_priority
   end
 
   def edit
@@ -28,7 +30,8 @@ class TasksController < ApplicationController
   end
 
   private
+
   def task_params
-    params.require(:task).permit(:name, :priority, :due_date)
+    params.require(:task).permit(:name, :priority, :due_date, :status)
   end
 end

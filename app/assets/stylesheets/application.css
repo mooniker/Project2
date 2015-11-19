@@ -9,7 +9,8 @@ html {
 }
 
 body{
-  background-color: rgb(222, 151, 12);
+  /*background-color: rgb(222, 151, 12);*/
+  background-color: rgb(208, 208, 208);
   color: rgb(36, 49, 61);
   font-family: 'PT Mono';
 }
@@ -103,7 +104,8 @@ nav{
 .project-view{
   width: 300px;
   flex-grow: 1;
-  background-color: rgb(215, 135, 5);
+  /*background-color: rgb(215, 135, 5);*/
+  background-color: rgb(152, 151, 151);
   border-radius: 3px;
   padding: 10px;
   margin: 5px;
@@ -137,12 +139,33 @@ nav{
   display: flex;
   flex-direction: column;
 }
+.row{
+  display: flex;
+  flex-direction: row;
+}
+.due{
+  background-color: rgb(41, 93, 41);
+  color: rgb(164, 151, 127);
+  border-radius: 3px;
+  margin-bottom: 5px;
+  padding: 10px 5px 10px 5px;
+  flex-grow: 1;
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+#soon{
+  background-color: #C41E00;
+  color: rgb(183, 170, 146);
+}
+
 .task{
   background-color: rgb(52, 73, 94);
   color: rgb(164, 151, 127);
   border-radius: 3px;
   margin-bottom: 5px;
   padding: 10px 5px 10px 5px;
+  flex-grow: 5;
 }
 .detail{
   background-color: rgba(215, 113, 5, 0.77);

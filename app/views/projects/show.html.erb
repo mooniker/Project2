@@ -2,8 +2,15 @@
 
   <div class="task-bucket project-view">
     <h2><%= @project.title %></h2>
-    <% @project.tasks.each do |task| %>
-      <%= link_to task.name, user_project_task_path(current_user, @project, task), class: 'task' %>
+    <% @tasks.each do |task| %>
+      <div class="row">
+        <%= link_to task.name, user_project_task_path(current_user, @project, task), class: 'task' %>
+        <% if task.priority == 'High' || task.priority == 'Urgent' %>
+          <aside class='due' id='soon'><%= task.due_in%> days left</aside>
+        <% else %>
+          <aside class='due'><%= task.due_in%> days left</aside>
+        <% end %>
+      </div>
     <% end %>
     <%= link_to '+', new_user_project_task_path(current_user, @project), class: 'button' %>
     <%= link_to 'Edit Project', edit_user_project_path(current_user, @project), class: 'button' %>
