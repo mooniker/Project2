@@ -12,10 +12,10 @@ class ProjectsController < ApplicationController
 
   #create
   def create
-    @project = current_user.projects.new(project_params)
-    if @project.save
+    project = current_user.projects.new(project_params)
+    if project.save
       flash[:notice] = "New project created! Go ahead and add the first task."
-      redirect_to user_project_path(current_user, @project)
+      redirect_to user_project_path(current_user, project)
     else
       render :new
     end
@@ -34,10 +34,10 @@ class ProjectsController < ApplicationController
 
   #update
   def update
-    @project = Project.find(params[:id])
-    if @project.update(project_params)
-      flash[:notice] = "Your changes to #{@project.title} bave been saved."
-      redirect_to user_project_path(current_user, @project)
+    project = Project.find(params[:id])
+    if project.update(project_params)
+      flash[:notice] = "Your changes to #{project.title} bave been saved."
+      redirect_to user_project_path(current_user, project)
     else
       render :edit
     end
@@ -45,8 +45,8 @@ class ProjectsController < ApplicationController
 
   #destroy
   def destroy
-    @project = Project.find(params[:id])
-    @project.destroy
+    project = Project.find(params[:id])
+    project.destroy
     redirect_to user_projects_path(current_user)
   end
 

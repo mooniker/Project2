@@ -9,6 +9,9 @@
         <% if task.status == 'Closed' %>
           <aside class="due" id='done'>Done!</aside>
         <% else %>
+          <!-- just a suggestion on next line, don't implement like this -->
+          <aside class='<%= "due priority__#{task.priority}" %>'><%= task.due_in%> days left</aside>
+          <!-- end suggestion -->
           <% if task.priority == 'High' || task.priority == 'Urgent' %>
             <aside class='due' id='soon'><%= task.due_in%> days left</aside>
           <% elsif task.priority == 'Med'%>
@@ -16,7 +19,7 @@
           <% else %>
             <aside class='due'><%= task.due_in%> days left</aside>
           <% end %>
-        <% end %>  
+        <% end %>
       </div>
     <% end %>
     <%= link_to '+', new_user_project_task_path(current_user, @project), class: 'button' %>
