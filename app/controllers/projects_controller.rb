@@ -12,8 +12,13 @@ class ProjectsController < ApplicationController
 
   #create
   def create
-    @project = current_user.projects.create(project_params)
-    redirect_to user_project_path(current_user, @project)
+    @project = current_user.projects.new(project_params)
+    if @project.save
+      flash[:notice] = "New project created! Go ahead and add the first task."
+      redirect_to user_project_path(current_user, @project)
+    else
+      render :new
+    end
   end
 
   #show
@@ -30,8 +35,12 @@ class ProjectsController < ApplicationController
   #update
   def update
     @project = Project.find(params[:id])
-    @project.update(project_params)
-    redirect_to user_project_path(current_user, @project)
+    if @project.update(project_params)
+      flash[:notice] = "Your changes to #{@project.title} bave been saved."
+      redirect_to user_project_path(current_user, @project)
+    else
+      render :edit
+    end
   end
 
   #destroy

@@ -1,31 +1,38 @@
 
 
-  <div class="task-bucket project-view">
+  <div class="task-bucket item-view">
     <h2><%= @project.title %></h2>
     <% @tasks.each do |task| %>
+      <% task.set_priority %>
       <div class="row">
         <%= link_to task.name, user_project_task_path(current_user, @project, task), class: 'task' %>
-        <% if task.priority == 'High' || task.priority == 'Urgent' %>
-          <aside class='due' id='soon'><%= task.due_in%> days left</aside>
+        <% if task.status == 'Closed' %>
+          <aside class="due" id='done'>Done!</aside>
         <% else %>
-          <aside class='due'><%= task.due_in%> days left</aside>
-        <% end %>
+          <% if task.priority == 'High' || task.priority == 'Urgent' %>
+            <aside class='due' id='soon'><%= task.due_in%> days left</aside>
+          <% elsif task.priority == 'Med'%>
+            <aside class='due' id='later'><%= task.due_in%> days left</aside>
+          <% else %>
+            <aside class='due'><%= task.due_in%> days left</aside>
+          <% end %>
+        <% end %>  
       </div>
     <% end %>
     <%= link_to '+', new_user_project_task_path(current_user, @project), class: 'button' %>
-    <%= link_to 'Edit Project', edit_user_project_path(current_user, @project), class: 'button' %>
-    <%= link_to 'Delete', user_project_path(current_user, @project), method: :delete, class:'button' %>
   </div>
 
 
-  <div class="project-view">
+  <div class="item-view">
     <h2>Details</h2>
-      <ul>
-        <li>Project Creator: <%= @project.user.first_name %></li>
-        <li>Description:<%= @project.description %></li>
-        <li><div class="image-container"><%= image_tag(@project.image) %></div></li>
-        <li>Start Date: <%= @project.created_at.to_date %></li>
-        <li>Due Date: <%= @project.due_date %></li>
-        <li>Status: <%= @project.status %></li>
-      </ul>
+    <ul>
+      <li><div class="image-container"><%= image_tag(@project.image) %></div></li>
+      <li><%= @project.description %></li>
+      <li>Start Date: <%= @project.created_at.to_date %></li>
+      <li>Due Date: <%= @project.due_date %></li>
+      <li>Status: <%= @project.status %></li>
+      <li>Created by: <%= @project.user.first_name %> <%= @project.user.last_name %></li>
+    </ul>
+    <%= link_to 'Edit Project', edit_user_project_path(current_user, @project), class: 'button' %>
+    <%= link_to 'Delete', user_project_path(current_user, @project), method: :delete, class:'button' %>
   </div>

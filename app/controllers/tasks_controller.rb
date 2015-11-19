@@ -7,8 +7,13 @@ class TasksController < ApplicationController
 
   def create
     @project = Project.find(params[:project_id])
-    @task = @project.tasks.create(task_params)
-    redirect_to user_project_path(current_user, @project)
+    @task = @project.tasks.new(task_params)
+    if @task.save
+      flash[:notice] = "Woohoo! New task created."
+      redirect_to user_project_path(current_user, @project)
+    else
+      render :new
+    end
   end
 
   def show
@@ -25,8 +30,19 @@ class TasksController < ApplicationController
   def update
     @project = Project.find(params[:project_id])
     @task = Task.find(params[:id])
-    @task.update(task_params)
-    redirect_to user_project_task_path(current_user, @project, @task)
+    if @task.update(task_params)
+      flash[:notice] = "Good new! Everything went smoothly and your task is updated."
+      redirect_to user_project_task_path(current_user, @project, @task)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @task = Task.find(params[:id])
+    @project = @task.project
+    @task.destroy
+    redirect_to user_project_path(current_user,@project)
   end
 
   private

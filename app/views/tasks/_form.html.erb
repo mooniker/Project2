@@ -1,3 +1,6 @@
+<% if @task.errors.any? %>
+  <div class="alert notification-banner"><%= @task.errors.full_messages.first%></div>
+<% end %>
 <h2><%= @project.title %> ></h2>
 <div class="field">
   <%= form_for ([current_user, @project, @task]) do |f| %>

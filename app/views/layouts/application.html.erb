@@ -19,8 +19,13 @@
                <%= link_to 'Login', new_user_session_path, :class => "button" %>
              <% end %>
       </div>
-    <div>
   </header>
+  <% if notice %>
+    <p class="notification-banner notice"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="notification-banner alert"><%= alert %></p>
+  <% end %>
   <div class="content" id="main">
     <nav>
       <% if current_user %>
@@ -30,12 +35,8 @@
       <% end %>
       <%= link_to 'Start New Project', new_user_project_path(current_user) %>
     </nav>
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
+
+
     <%= yield %>
   </div>
 

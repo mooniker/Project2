@@ -1,7 +1,7 @@
 class Task < ActiveRecord::Base
   belongs_to :project
-
-  # after_initialize :set_priority
+  validates :name, :due_date , presence: true
+  validates :name, length: {maximum: 100}
 
   attr_accessor :due_in
 
@@ -10,11 +10,11 @@ class Task < ActiveRecord::Base
   end
 
   def set_priority
-    if due_in < 2
+    if due_in < 3
       self.update(priority: 'Urgent')
-    elsif due_in < 5
+    elsif due_in < 7
       self.update(priority: 'High')
-    elsif due_in < 8
+    elsif due_in < 15
       self.update(priority: 'Med')
     else
       self.update(priority: 'Low')

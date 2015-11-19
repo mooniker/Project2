@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,700,300);
 @import url(https://fonts.googleapis.com/css?family=PT+Mono);
+@import url(https://fonts.googleapis.com/css?family=Bubblegum+Sans);
 
 html {
   box-sizing: border-box;
@@ -10,21 +11,25 @@ html {
 
 body{
   /*background-color: rgb(222, 151, 12);*/
-  background-color: rgb(208, 208, 208);
+  /*background-color: rgb(208, 208, 208);*/
+  background-color: rgb(107, 143, 103);
   color: rgb(36, 49, 61);
   font-family: 'PT Mono';
 }
-h1, h2{
+h2{
   font-family: 'Oswald';
   font-weight: bold;
   margin: 0;
 }
 h1{
-  font-size: 50px;
+  font-family: 'Bubblegum Sans', cursive;
+  font-size: 60px;
   line-height: 1;
   top: 15%;
   position: absolute;
   left: 10%;
+  margin: 0;
+  color: rgb(170, 166, 158);
 }
 
 header{
@@ -66,7 +71,7 @@ a{
   background-color: rgb(52, 73, 94);
   height: 30px;
   width: 300px;
-  color: rgb(164, 151, 127);
+  color: rgb(170, 166, 158);
   font-size: 14px;
 }
 .field textarea{
@@ -82,7 +87,7 @@ a{
   padding: 10px;
   border-radius: 3px;
   background-color: rgb(36, 49, 61);
-  color: rgb(164, 151, 127);
+  color: rgb(170, 166, 158);
 }
 input[type=submit]{
   margin-top: 20px;
@@ -90,7 +95,7 @@ input[type=submit]{
 }
 nav a{
   background-color: rgb(36, 49, 61);
-  color: rgb(164, 151, 127);
+  color: rgb(170, 166, 158);
   padding: 15px;
   -webkit-box-shadow: 0px 1px 11px -2px rgba(19,15,26,1);
   -moz-box-shadow: 0px 1px 11px -2px rgba(19,15,26,1);
@@ -101,26 +106,30 @@ nav{
   top: 115px;
   right:10%;
 }
-.project-view{
+.item-view{
   width: 300px;
   flex-grow: 1;
   /*background-color: rgb(215, 135, 5);*/
-  background-color: rgb(152, 151, 151);
+  /*background-color: rgb(152, 151, 151);*/
+  background-color: rgba(117, 118, 118, 0.57);
   border-radius: 3px;
   padding: 10px;
   margin: 5px;
   position: relative;
+  -webkit-box-shadow: 0px 0px 26px -8px rgba(10,51,29,1);
+-moz-box-shadow: 0px 0px 26px -8px rgba(10,51,29,1);
+box-shadow: 0px 0px 26px -8px rgba(10,51,29,1);
 }
-.project-view h2{
+.item-view h2{
   border-bottom: 2px dotted rgb(52, 73, 94);
   margin-bottom: 5px;
 }
-.project-view p{
+.item-view p{
   max-height: 145px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.project-view .image-container{
+.item-view .image-container{
   height: 140px;
   width: 280px;
   overflow: hidden;
@@ -129,7 +138,7 @@ nav{
 .image-container img{
   width: 100%;
 }
-.project-view .button{
+.item-view .button{
   width: 280px;
   text-align: center;
   margin: 10px auto;
@@ -145,7 +154,7 @@ nav{
 }
 .due{
   background-color: rgb(41, 93, 41);
-  color: rgb(164, 151, 127);
+  color: rgb(170, 166, 158);
   border-radius: 3px;
   margin-bottom: 5px;
   padding: 10px 5px 10px 5px;
@@ -156,23 +165,44 @@ nav{
 
 #soon{
   background-color: #C41E00;
-  color: rgb(183, 170, 146);
+  color: rgb(170, 166, 158);
+}
+#later{
+  background-color: rgb(227, 179, 58);
+}
+#done{
+  background-color: rgb(40, 38, 38);
 }
 
 .task{
   background-color: rgb(52, 73, 94);
-  color: rgb(164, 151, 127);
+  color: rgb(170, 166, 158);
   border-radius: 3px;
   margin-bottom: 5px;
   padding: 10px 5px 10px 5px;
   flex-grow: 5;
 }
-.detail{
-  background-color: rgba(215, 113, 5, 0.77);
-  color: rgb(36, 49, 61);
-  border-radius: 3px;
-  padding: 10px;
-}
+
 li{
   list-style: none;
+  margin-bottom: 15px;
+}
+
+.notification-banner{
+  position: absolute;
+  top: 100px;
+  left: 10%;
+  padding: 10px;
+  margin: 0;
+  -webkit-box-shadow: 0px 1px 11px -2px rgba(19,15,26,1);
+  -moz-box-shadow: 0px 1px 11px -2px rgba(19,15,26,1);
+  box-shadow: 0px 1px 11px -2px rgba(19,15,26,1);
+}
+
+.alert{
+  background-color: rgb(174, 63, 63);
+}
+
+.notice{
+  background-color: rgb(38, 85, 60);
 }
